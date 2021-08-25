@@ -57,8 +57,10 @@ namespace KeySql
                     // ... It receives the connection object.
                     // ... The SQL text works with a specific database.
                     //
-                    String query = "INSERT INTO dbo.Product (Name,Category,Price) VALUES ( @name, @category, @price)";
-
+                    
+                    //String query = "INSERT INTO dbo.Product (Name,Category,Price) VALUES ( @name, @category, @price)";
+                    
+                    String query = "update dbo.Product set Name=@name,Category=@category,Price=@price where Id = 1";
 
 
                     using (SqlCommand command = new SqlCommand(
@@ -67,9 +69,9 @@ namespace KeySql
                         connection))
                     {
                         //command.Parameters.AddWithValue("@id", 1);
-                        command.Parameters.AddWithValue("@name", "Tomato Soup");
-                        command.Parameters.AddWithValue("@category", "Groceries");
-                        command.Parameters.AddWithValue("@price", 1);
+                        command.Parameters.AddWithValue("@name", "Tomato Soup plus");
+                        command.Parameters.AddWithValue("@category", "Groceries plus");
+                        command.Parameters.AddWithValue("@price", 2 );
 
                         command.ExecuteNonQuery();
 
